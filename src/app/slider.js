@@ -14,7 +14,7 @@ const Carousel = () => {
 			setCurrentIndex((prevIndex) =>
 				prevIndex === slides.length - 1 ? 0 : prevIndex + 1
 			);
-		}, 3000); // Change slide every 3 seconds
+		}, 3000);
 
 		return () => clearInterval(interval); // Clear interval on component unmount
 	}, []);
@@ -40,22 +40,12 @@ const Carousel = () => {
 						<img
 							src={src}
 							alt={`Slide ${index + 1}`}
-							className='w-full h-auto object-cover'
+							className='w-auto h-auto object-cover' // Set width and height as needed
 						/>
 					</div>
 				))}
 			</div>
 			{/* Optional: Add indicators to show current slide */}
-			<div className='absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2'>
-				{slides.map((_, index) => (
-					<span
-						key={index}
-						className={`block w-3 h-3 rounded-full ${
-							index === currentIndex ? "bg-gray-800" : "bg-gray-400"
-						}`}
-					/>
-				))}
-			</div>
 		</div>
 	);
 };
